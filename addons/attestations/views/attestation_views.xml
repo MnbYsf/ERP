@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_tp_attestation" model="ir.actions.act_window">
+        <field name="name">Attestations</field>
+        <field name="res_model">tp.attestation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu principal -->
+    <menuitem id="menu_tp_root" name="Attestations" sequence="10"/>
+
+    <!-- Sous-menu -->
+    <menuitem id="menu_tp_attestations"
+              name="Gestion des Attestations"
+              parent="menu_tp_root"
+              action="action_tp_attestation"
+              sequence="10"/>
+
+    <!-- Vue liste -->
+    <record id="view_tp_attestation_tree" model="ir.ui.view">
+        <field name="name">tp.attestation.tree</field>
+        <field name="model">tp.attestation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="etudiant"/>
+                <field name="date_creation"/>
+                <field name="statut"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue formulaire -->
+    <record id="view_tp_attestation_form" model="ir.ui.view">
+        <field name="name">tp.attestation.form</field>
+        <field name="model">tp.attestation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="etudiant"/>
+                        <field name="date_creation"/>
+                        <field name="statut"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
